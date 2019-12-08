@@ -1,0 +1,5 @@
+package ibdb.entities.publishers;
+
+public interface IPublisherService {
+
+}

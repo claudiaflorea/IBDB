@@ -1,0 +1,5 @@
+package ibdb.entities.permissions;
+
+public class PermissionController {
+
+}

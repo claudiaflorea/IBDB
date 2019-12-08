@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.hibernate.annotations.Entity"/>
+<fullyQualifiedTypeName name="org.springframework.data.annotation.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="ibdb.entities.address.Address"/>
+<fullyQualifiedTypeName name="ibdb.entities.authors.Author"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.time.Instant"/>
+<fullyQualifiedTypeName name="ibdb.entities.publishers.Publisher"/>
+<fullyQualifiedTypeName name="ibdb.entities.roles.Role"/>
+<fullyQualifiedTypeName name="ibdb.entities.permissions.Permission"/>
+<fullyQualifiedTypeName name="ibdb.entities.users.UserAccount"/>
+<fullyQualifiedTypeName name="ibdb.entities.reviews.Review"/>
+<fullyQualifiedTypeName name="ibdb.entities.books.Book"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="ibdb.entities.feedback.Feedback"/>
+</qualifiedTypeNameHistroy>

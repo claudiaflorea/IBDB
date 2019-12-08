@@ -1,0 +1,5 @@
+package ibdb.entities.roles;
+
+public class RoleController {
+
+}

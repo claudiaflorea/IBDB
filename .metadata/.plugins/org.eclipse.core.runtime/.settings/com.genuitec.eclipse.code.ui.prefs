@@ -1,0 +1,13 @@
+codemix.settings.migration=true
+codemix.show.control.panel.tip=upgrade
+codemix.show.validation.tip=upgrade
+deletedObsoleteMarkers=true
+displaySyntaxColorInfo=true
+eclipse.preferences.version=1
+initializedAutoCloseTag=true
+initializedCodeMining=true
+initializedEditor=true
+initializedHTMLHint=true
+initializedIntellisense=true
+request.editor.usage.survey=false
+unsetCheckJs=true

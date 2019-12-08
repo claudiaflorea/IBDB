@@ -1,0 +1,32 @@
+package ibdb.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import
+import javax.persistence.SequenceGenerator;
+
+@Entity
+public class Category {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_generator")
+	@SequenceGenerator(name = "category_generator", sequenceName = "category_generator", initialValue = 300, allocationSize = 1)
+	private Integer categoryId;
+	private String categoryName;
+	@OneToMany
+	private Subcategory subcategory;
+	
+	//-----------------getters and setters------------//
+
+	
+	//----------------constructors------------//
+
+	
+	public Category() {
+		super();
+	}
+	
+}

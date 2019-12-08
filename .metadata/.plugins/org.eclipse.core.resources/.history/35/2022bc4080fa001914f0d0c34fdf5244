@@ -1,0 +1,5 @@
+package ibdb.entities.users;
+
+public class UserAccountService {
+
+}

@@ -1,0 +1,11 @@
+1571162130614	Delete element
+1571162389241	Rename package 'isbn'
+1571162458466	Rename compilation unit 'IsbnBackendApplication.java'
+1571165403379	Delete element
+1571247044750	Rename type 'Authors'
+1571247060335	Rename type 'Books'
+1571247076171	Rename type 'Categories'
+1571247089551	Rename type 'Publishers'
+1571247103358	Rename type 'Reviews'
+1571247129902	Rename type 'Subcategories'
+1571247146034	Rename type 'Users'

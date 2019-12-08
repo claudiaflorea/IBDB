@@ -1,0 +1,243 @@
+package ibdb.utils;
+
+import java.sql.Date;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
+
+import ibdb.entities.address.*;
+import ibdb.entities.authors.*;
+import ibdb.entities.books.*;
+import ibdb.entities.categories.*;
+import ibdb.entities.permissions.*;
+import ibdb.entities.publishers.*;
+import ibdb.entities.reviews.*;
+import ibdb.entities.roles.*;
+import ibdb.entities.subcategories.*;
+import ibdb.entities.users.*;
+import ibdb.entities.feedback.*;
+
+
+@Component
+public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
+
+
+	@Autowired
+	private ICategoryService categoryService;
+	@Autowired
+	private ISubcategoryService subcategoryService;
+	@Autowired
+	private IAddressService addressService;
+	@Autowired
+	private IUserAccountService userAccountService;
+	@Autowired
+	private IRoleService roleService;
+	@Autowired
+	private IPermissionService permissionService;
+	@Autowired
+	private IPublisherService publisherService;
+	@Autowired
+	private IAuthorService authorService;
+	@Autowired
+	private IBookService bookService;
+	@Autowired
+	private IReviewService reviewService;
+	@Autowired
+	private IFeedbackService feedbackService;
+	@Autowired
+	private DisplayData displayData;
+	
+
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+		loadData();
+	}
+	
+	
+	private void loadData() {
+		displayData.printInfo("Starting data loading...");
+		try {
+			updateCategory();
+			updateSubcategory();
+			updateAddress();
+			updateAuthor();
+			updateRole();
+			updatePermission();
+			updateUserAccount();
+			updateBook();
+			updateFeedback();
+			updateReview();
+			updatePublisher();
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+
+		displayData.printInfo("Data successfully loaded.");
+	}
+	
+	
+	private void updateCategory() {
+		Category category1 = new Category(300, "Fiction");
+		Category category2 = new Category(301, "Non-fiction");
+		
+		categoryService.insertCategory(category1);
+		categoryService.insertCategory(category2);
+	}
+	
+	private void updateSubcategory() {
+		
+		List<Category> categories = categoryService.findAllCategories();
+		
+		Subcategory subcategory1 = new Subcategory(990, "Action and Adventure");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory2 = new Subcategory(991, "Anthology");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory3 = new Subcategory(992, "Classic");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory4 = new Subcategory(993, "Comic/Graphic Novel");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory5 = new Subcategory(994, "Crime and Detective");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory6 = new Subcategory(995, "Drama");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory7 = new Subcategory(996, "Fable");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory8 = new Subcategory(997, "Fairy Tale");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory9 = new Subcategory(998, "Fan-Fiction");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory10 = new Subcategory(999, "Fantasy");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory11 = new Subcategory(1000, "Historical Fiction");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory12 = new Subcategory(1001, "Horror");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory13 = new Subcategory(1002, "Humor");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory14 = new Subcategory(1003, "Legend");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory15 = new Subcategory(1004, "Magical Realism");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory16 = new Subcategory(1005, "Mystery");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory17 = new Subcategory(1006, "Mythology");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory18 = new Subcategory(1007, "Historical Fiction");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory19 = new Subcategory(1008, "Realistic Fiction");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory20 = new Subcategory(1009, "Romance");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory21 = new Subcategory(1010, "Satire");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory22 = new Subcategory(1011, "Science Fiction");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory23 = new Subcategory(1012, "Short Story");
+		subcategory1.setCategory(categories.get(0));
+		Subcategory subcategory24 = new Subcategory(1013, "Suspense/Thriller");
+		subcategory1.setCategory(categories.get(0));
+		
+		Subcategory subcategory25 = new Subcategory(1014, "Biography");
+		subcategory1.setCategory(categories.get(1));
+		Subcategory subcategory26 = new Subcategory(1015, "Essay");
+		subcategory1.setCategory(categories.get(1));
+		Subcategory subcategory27 = new Subcategory(1016, "Memoir");
+		subcategory1.setCategory(categories.get(1));
+		Subcategory subcategory28 = new Subcategory(1017, "Narrative Nonfiction");
+		subcategory1.setCategory(categories.get(1));
+		Subcategory subcategory29 = new Subcategory(1018, "Periodicals");
+		subcategory1.setCategory(categories.get(1));
+		Subcategory subcategory30 = new Subcategory(1019, "Reference Books");
+		subcategory1.setCategory(categories.get(1));
+		Subcategory subcategory31 = new Subcategory(1020, "Self-help Book");
+		subcategory1.setCategory(categories.get(1));
+		Subcategory subcategory32 = new Subcategory(1021, "Speech");
+		subcategory1.setCategory(categories.get(1));
+		Subcategory subcategory33 = new Subcategory(1022, "Textbook");
+		subcategory1.setCategory(categories.get(1));
+		Subcategory subcategory34 = new Subcategory(1023, "Poetry");
+		subcategory1.setCategory(categories.get(1));
+		
+		
+		
+		subcategoryService.insertSubcategory(subcategory1);
+		subcategoryService.insertSubcategory(subcategory2);
+		subcategoryService.insertSubcategory(subcategory3);
+		subcategoryService.insertSubcategory(subcategory4);
+		subcategoryService.insertSubcategory(subcategory5);
+		subcategoryService.insertSubcategory(subcategory6);
+		subcategoryService.insertSubcategory(subcategory7);
+		subcategoryService.insertSubcategory(subcategory8);
+		subcategoryService.insertSubcategory(subcategory9);
+		subcategoryService.insertSubcategory(subcategory10);
+		subcategoryService.insertSubcategory(subcategory11);
+		subcategoryService.insertSubcategory(subcategory12);
+		subcategoryService.insertSubcategory(subcategory13);
+		subcategoryService.insertSubcategory(subcategory14);
+		subcategoryService.insertSubcategory(subcategory15);
+		subcategoryService.insertSubcategory(subcategory16);
+		subcategoryService.insertSubcategory(subcategory17);
+		subcategoryService.insertSubcategory(subcategory18);
+		subcategoryService.insertSubcategory(subcategory19);
+		subcategoryService.insertSubcategory(subcategory20);
+		subcategoryService.insertSubcategory(subcategory21);
+		subcategoryService.insertSubcategory(subcategory22);
+		subcategoryService.insertSubcategory(subcategory23);
+		subcategoryService.insertSubcategory(subcategory24);
+		subcategoryService.insertSubcategory(subcategory25);
+		subcategoryService.insertSubcategory(subcategory26);
+		subcategoryService.insertSubcategory(subcategory27);
+		subcategoryService.insertSubcategory(subcategory28);
+		subcategoryService.insertSubcategory(subcategory29);
+		subcategoryService.insertSubcategory(subcategory30);
+		subcategoryService.insertSubcategory(subcategory31);
+		subcategoryService.insertSubcategory(subcategory32);
+		subcategoryService.insertSubcategory(subcategory33);
+		subcategoryService.insertSubcategory(subcategory34);
+	
+	}
+	
+	private void updateAddress() {
+		
+		
+	}
+	
+	private void updateAuthor() {
+		
+	}
+	
+	private void updatePublisher() {
+		
+	}
+	
+	private void updateRole() {
+		
+	}
+	
+	private void updatePermission() {
+		
+	}
+	
+	private void updateUserAccount() {
+		
+	}
+	
+	private void updateBook() {
+		
+	}
+	
+	private void updateReview() {
+		
+	}
+	
+	private void updateFeedback() {
+		
+	}
+
+	
+}

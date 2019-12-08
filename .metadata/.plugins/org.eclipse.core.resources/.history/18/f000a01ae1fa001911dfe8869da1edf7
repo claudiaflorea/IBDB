@@ -1,0 +1,23 @@
+package ibdb.entities.feedback;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+
+import ibdb.entities.users.*;
+
+@Entity
+public class Feedback {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "feedback_generator")
+	@SequenceGenerator(name = "feedback_generator", sequenceName = "feedback_generator", initialValue = 4500, allocationSize = 1)
+	private Integer feedbackId;	
+	private String message;
+	@ManyToOne
+	private UserAccount sender;
+	
+}
