@@ -1,5 +1,0 @@
-package ibdb.entities.authors;
-
-public interface IAuthorRepository {
-
-}

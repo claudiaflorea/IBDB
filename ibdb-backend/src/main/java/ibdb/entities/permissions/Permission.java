@@ -67,12 +67,20 @@ public class Permission {
 		this.roles = new ArrayList<Role>();
 	}
 
-	public Permission(Integer permissionId, String permissionName, String permissionDescription) {
+	public Permission(Integer permissionId, String permissionName, String permissionDescription, List<Role> roles) {
 		super();
+		this.roles = new ArrayList<Role>();
 		this.permissionId = permissionId;
 		this.permissionName = permissionName;
 		this.permissionDescription = permissionDescription;
 		this.roles = new ArrayList<Role>();
 	}
-
+	
+	public Permission(Integer permissionId, String permissionName, String permissionDescription) {
+		super();
+		this.roles = new ArrayList<Role>();
+		this.permissionId = permissionId;
+		this.permissionName = permissionName;
+		this.permissionDescription = permissionDescription;
+	}
 }

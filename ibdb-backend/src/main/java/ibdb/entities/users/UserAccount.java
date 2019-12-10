@@ -1,8 +1,10 @@
 package ibdb.entities.users;
 
 import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
-
 import ibdb.entities.address.Address;
 import ibdb.entities.feedback.Feedback;
 import ibdb.entities.reviews.Review;
+import ibdb.entities.roles.Role;
 
 @Entity
 public class UserAccount {
@@ -37,15 +40,28 @@ public class UserAccount {
 	private List<Review> reviews;
 	@OneToMany(mappedBy = "sender")
 	private List<Feedback> messages;
-
+	@ManyToOne
+	private Role role;
 	// -----------------getters and setters--------------//
 
 	public Integer getUserId() {
 		return userId;
 	}
-
+	
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+	
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmailAddress() {
@@ -144,10 +160,12 @@ public class UserAccount {
 		super();
 		this.reviews = new ArrayList<Review>();
 		this.messages = new ArrayList<Feedback>();
+		this.role = new Role();
 	}
 
 	public UserAccount(Integer userId, String emailAddress, String lastName, String firstName,
-			String gender, String username, String password, Date birthDate, Address address, String image, List<Review> reviews) {
+			String gender, String username, String password, Date birthDate, Address address, String image, 
+			List<Review> reviews, Role role) {
 		super();
 		this.userId = userId;
 		this.emailAddress = emailAddress;
@@ -162,6 +180,7 @@ public class UserAccount {
 		this.reviews = reviews;
 		this.reviews = new ArrayList<Review>();
 		this.messages = new ArrayList<Feedback>();
+		this.role = role;
 	}
 
 	public UserAccount(Integer userId, String emailAddress, String lastName, String firstName,
@@ -175,6 +194,10 @@ public class UserAccount {
 		this.username = username;
 		this.password = password;
 		this.birthDate = birthDate;
+	}
+
+	public void setRole(Optional<Role> findRoleById) {
+		// TODO Auto-generated method stub
 	}
 
 }

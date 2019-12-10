@@ -2,6 +2,7 @@ package ibdb.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -369,13 +370,13 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 		List<Role> roles = roleService.findAllRoles();
 		
 		Permission permission1 = new Permission(700, "canCreateReviews", "The user has the power to create reviews only if he is registered");
-		permission1.setRoles((List<Role>) roles.get(2));
+		permission1.setRoles(Arrays.asList(roles.get(2), roles.get(1)));
 		Permission permission2 = new Permission(701, "canDeleteData", "The user belongs to the System Administrator for security purposes");
-		permission1.setRoles((List<Role>) roles.get(0));
+		permission1.setRoles(Arrays.asList(roles.get(0), roles.get(1)));
 		Permission permission3 = new Permission(702, "canAddEditData", "The operators can add new data in the systems and update current data");
-		permission1.setRoles((List<Role>) roles.get(1));
-		Permission permission4 = new Permission(703, "canViewReviews", "Any user can view reviews, weather they do or do not have an account");
-		permission1.setRoles((List<Role>) roles.get(3));
+		permission1.setRoles(Arrays.asList(roles.get(1), roles.get(0)));
+		Permission permission4 = new Permission(703, "canViewRSeviews", "Any user can view reviews, weather they do or do not have an account");
+		permission1.setRoles(Arrays.asList(roles.get(3)));
 		
 		permissionService.insertPermission(permission1);
 		permissionService.insertPermission(permission2);
@@ -388,19 +389,23 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 		
 		UserAccount userAccount1 = new UserAccount(9900, "adelaminculescu@gmail.com", "Minculecu", "Adela", "Female","Adela Minculescu",
 				"@del@mincu22", dateFormat("12/03/1985"));
+		userAccount1.setRole(roleService.findRoleById(52));
 		
 		UserAccount userAccount2 = new UserAccount(9901, "adinadima@gmail.com", "Dima", "Adina", "Female","Adina Dima", "adima127&", 
 				dateFormat("18/03/1990"));
+		userAccount2.setRole(roleService.findRoleById(52));
 		
 		UserAccount userAccount3 = new UserAccount(9902, "teodorBarbu@gmail.com", "Barbu", "Teodor", "Male","Teodor B.", 
 				"theodor0242", dateFormat("10/02/1988"));
+		userAccount3.setRole(roleService.findRoleById(52));
 		
 		UserAccount userAccount4 = new UserAccount(9903, "gabrieladobos@gmail.com", "Dobos", "Gabriela", "Female","Gabi", 
 				"dobosgabi24", dateFormat("20/09/1992"));
+		userAccount4.setRole(roleService.findRoleById(52));
 		
 		UserAccount userAccount5 = new UserAccount(9904, "eugenpapuc@gmail.com", "Papuc", "Eugen", "Male","Eugen", 
 				"eugenpapuc34", dateFormat("12/08/1991"));
-		
+		userAccount5.setRole(roleService.findRoleById(52));
 		userAccountService.insertUserAccount(userAccount1);
 		userAccountService.insertUserAccount(userAccount2);
 		userAccountService.insertUserAccount(userAccount3);

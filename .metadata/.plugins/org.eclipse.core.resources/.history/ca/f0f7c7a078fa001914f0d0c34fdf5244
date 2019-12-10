@@ -1,5 +1,0 @@
-package ibdb.entities.categories;
-
-public interface ICategoryService {
-
-}

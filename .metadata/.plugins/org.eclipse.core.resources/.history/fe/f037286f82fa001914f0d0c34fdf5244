@@ -1,5 +1,0 @@
-package ibdb.entities.permissions;
-
-public class PermissionService {
-
-}
