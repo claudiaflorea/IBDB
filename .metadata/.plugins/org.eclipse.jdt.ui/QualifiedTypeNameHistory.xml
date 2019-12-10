@@ -19,4 +19,5 @@
 <fullyQualifiedTypeName name="ibdb.entities.books.Book"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="ibdb.entities.feedback.Feedback"/>
+<fullyQualifiedTypeName name="ibdb.authentication.bean.Greeting"/>
 </qualifiedTypeNameHistroy>
